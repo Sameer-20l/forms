@@ -11,8 +11,10 @@
 <!-- Reactive Form -->
 <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
   <input type="text"  placeholder="Enter Name" name="name" formControlName="user">
-  <br><br>
+  <br>
+  <span *ngIf="user && user.invalid && user.touched">This Feild is required</span>
+  <br>
   <input type="password"  placeholder="Password" name="password" formControlName="password">
   <br><br>
-  <button>Login</button>
+  <button [disabled]="loginForm.invalid">Login</button>
 </form> 
